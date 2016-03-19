@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 19 Mar, 2016, 10:56:31 AM
+    Author     : saravanan
+*/
+html,
+body {
+  margin: auto; }
+
+/*uitilit classes*/
+.d-inline {
+  display: inline-block; }
+
+.box-border {
+  width: 100%;
+  height: 20px;
+  background: #aaa; }
+
+.caps {
+  text-transform: uppercase; }
+
+.margin-top-10 {
+  margin-top: 10px; }
+
+/*uitility class ends*/
+.p-info input[type='text'] {
+  width: 40px;
+  height: 25px; }
+
+.button-holder button, .button-holder a {
+  background: none;
+  margin: 0;
+  padding: 0; }
+.button-holder a {
+  text-decoration: none; }
+.button-holder .save:before {
+  content: "|";
+  color: #aaa;
+  margin: 0 10px; }
+.button-holder .edit:after {
+  content: "|";
+  color: #aaa;
+  margin-left: 7px; }
+.button-holder .remove:before {
+  content: "X";
+  color: #aaa;
+  font-weight: bolder;
+  margin-right: 10px; }
+
+@media only screen and (min-width: 768px) {
+  .button-holder .save:before {
+    content: "|";
+    color: #aaa;
+    margin: 0 15px; }
+  .button-holder .edit:after {
+    content: "|";
+    color: #aaa;
+    margin: 0 25px; }
+  .button-holder .remove:before {
+    content: "X";
+    color: #aaa;
+    font-weight: bolder;
+    margin: 0 5px; } }
+
+/*# sourceMappingURL=style.css.map */

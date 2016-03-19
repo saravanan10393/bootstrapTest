@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Shopping Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <section class="header">
+        <span class="title">Your Shopping Bag</span>
+        <span class="p-count pull-right visible-md">3 Items</span>
+      </section>
+      <section class="content">
+        <br/><br/>
+        <hr class="hidden-xs" />
+        <div class="p-item-holder">
+          <!-- table title for lg device-->
+          <div class="row hidden visible-lg visible-md">
+            <div class="col-md-8">
+              <span class="">3 Items</span>
+            </div>
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-4">
+                  Size
+                </div>
+                <div class="col-md-4">
+                  Qty
+                </div>
+                <div class="col-md-4">
+                  Prize
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--table title ends-->
+
+          <div class="box-border"></div>
+
+          <!-- product items -->
+          <div class="p-items row">
+            <div class="col-md-8 col-sm-12"><!-- image details -->
+              <div class="row">
+                <div class="col-md-5 col-sm-6 col-xs-6">
+                  <img src="">
+                </div>
+                <div class="col-md-7 visible-lg visible-md p-info">
+                  <h4>Solid green cotton T-Shirt</h4>
+                  <p>Style #: aldfsj</p>
+                  <p>Color : Blue</p>
+                   <p>Size : S</p>
+                   <br/>
+                <div class="button-holder margin-top-10">
+                    <a href="javascript:void(0)" class="edit caps">EDIT</a>
+                    <a href="javascript:void(0)" class="remove caps">REMOVE</a>
+                    <a href="javascript:void(0)" class="save caps">SAVE FOR LATER</a>
+                 </div>
+                </div>
+                <div class="col-sm-6 col-xs-6 hidden visible-sm visible-xs p-info">
+                  <h4>Solid green cotton T-Shirt</h4>
+                  <p>Style #: aldfsj</p>
+                  <p>Color : Blue</p>
+                  <p>Size : S</p>
+                  <div class="d-inline margin-top-10">
+                    <span>QTY</span>
+                    <input type="text">
+                  </div>
+                  <div class="prize-info margin-top-10">
+                    <span class="currency-symbom">$</span>
+                    <span class="rate">7</span>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 text-center hidden visible-sm visible-xs button-holder margin-top-10">
+                   <a href="javascript:void(0)" class="edit caps">EDIT</a>
+                    <a href="javascript:void(0)" class="remove caps">REMOVE</a>
+                    <a href="javascript:void(0)" class="save caps">SAVE FOR LATER</a>
+                 </div>
+              </div>
+            </div>
+            <div class="col-md-4 visible-lg"><!-- count details -->
+
+            </div>
+          </div>
+          <!-- product items ends-->
+        </div>
+      </section>
+      <section class="footer">
+
+      </section>
+    </div>
+  </body>
+</html>
