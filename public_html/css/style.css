@@ -23,6 +23,9 @@ body {
 .caps {
   text-transform: uppercase; }
 
+.padding-10 {
+  padding: 10px; }
+
 .margin-top-10 {
   margin-top: 10px; }
 
@@ -30,6 +33,13 @@ body {
 .p-info input[type='text'] {
   width: 40px;
   height: 25px; }
+
+.promo-code-details input[type='text'] {
+  height: 34px; }
+.promo-code-details button, .promo-code-details .button-holder a, .button-holder .promo-code-details a {
+  width: 95px;
+  height: 34px;
+  border-radius: 0px; }
 
 .button-holder button, .button-holder a {
   background: none;
