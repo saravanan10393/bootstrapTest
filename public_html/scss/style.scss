@@ -8,6 +8,9 @@ and open the template in the editor.
     Author     : saravanan
 */
 $fullWidth:100%;
+$fullHeight:100%;
+$halfHeight:50%;
+$halfWidth:50%;
 
 html,
 body{
@@ -40,21 +43,25 @@ body{
 }
 
 .underline{
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .text-end{
-    text-align: end;
+  text-align: end;
+}
+
+.bottom-line{
+  border-bottom: 1px #aaa solid;
 }
 
 /*uitility class ends*/
 
 
 .header{
-    .title{
-        font-size: 30px;
-        font-weight: bolder;
-    }
+  .title{
+    font-size: 30px;
+    font-weight: bolder;
+  }
 }
 
 .p-info{
@@ -66,8 +73,8 @@ body{
 
 
 .p-count{
-    font-size: 18px;
-    font-weight: lighter;
+  font-size: 18px;
+  font-weight: lighter;
 }
 
 .promo-code-details{
@@ -117,19 +124,43 @@ body{
 }
 
 .sub-title,.prize{
-    font-size: 18px;
-    font-weight: 400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .title-info{
-    font-size: 14px;
-    font-weight: lighter;
+  font-size: 14px;
+  font-weight: lighter;
 }
 
 .checkout-btn{
-    height: 50px;
-    width:$fullWidth;
-    border-radius: 0px; 
+  height: 50px;
+  width:$fullWidth;
+  border-radius: 0px;
+}
+
+.modal-content{
+  .item-img{
+    img{
+      height: $halfHeight;
+      width: $halfWidth;
+    }
+  }
+}
+
+.colors{
+  .color{
+    width: 25px;
+    height:25px;
+    border:solid #aaa 1px;
+    cursor: pointer;
+  }
+  .color{
+    .active{
+      height:30px;
+      width:30px
+    }
+  }
 }
 
 @media only screen and (min-width:768px){
@@ -157,9 +188,9 @@ body{
       }
     }
   }
-  
+
   .checkout-btn{
-      width:150px;
+    width:150px;
   }
-  
+
 }

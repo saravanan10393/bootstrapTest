@@ -35,6 +35,9 @@ body {
 .text-end {
   text-align: end; }
 
+.bottom-line {
+  border-bottom: 1px #aaa solid; }
+
 /*uitility class ends*/
 .header .title {
   font-size: 30px;
@@ -87,6 +90,19 @@ body {
   height: 50px;
   width: 100%;
   border-radius: 0px; }
+
+.modal-content .item-img img {
+  height: 50%;
+  width: 50%; }
+
+.colors .color {
+  width: 25px;
+  height: 25px;
+  border: solid #aaa 1px;
+  cursor: pointer; }
+.colors .color .active {
+  height: 30px;
+  width: 30px; }
 
 @media only screen and (min-width: 768px) {
   .button-holder .save:before {

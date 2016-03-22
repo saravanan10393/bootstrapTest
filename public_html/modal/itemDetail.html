@@ -1,20 +1,28 @@
-<div class="row">
-    <div class="item-info-holder col-md-4">
-        <div class="text-center">
-            <div class="box-border"></div><br/>
-            <div class="item-info">
-                <h5>PAISELY JEANS</h5>
-                <p class="prize"><span class="currency-symbom">$</span>21</p><br/>
-                <span>PAISELY</span>
-                <div class="row colors">
-                    <div class="color white"></div>
-                    <div class="color green"></div>
-                </div>
-            </div>
-            
+<div class="modal-content">
+  <div class="row">
+    <button class="btn btn-danger pull-right">close</button>
+    <div class="item-info-holder col-md-5">
+      <div class="text-center col-md-12 col-sm-12 col-xs-12">
+        <div class="box-border"></div><br/>
+        <div class="item-info">
+          <h5>{{selectedItem.p_name | uppercase}}</h5>
+          <p class="prize">{{selectedItem.c_currency+" "+selectedItem.totalPrize}}</p><br/>
+          <span>Colors</span>
+          <div class="row colors">
+            <div class="color" ng-repeat="color in selectedItem.p_available_options.colors" style="background-color: {{color.hexcode}}" ng-class="getSelectedColor(color)" ng-click="selectedItem.p_selected_color = color"></div>
+          </div>
+
+          <div class="row">
+            <div></div>
+            <div></div>
+          </div>
+
         </div>
+
+      </div>
     </div>
-    <div class="item-img col-md-8">
-        <img src="../asserts/img/P1.jpg">
+    <div class="item-img col-md-7 text-center">
+      <img src="asserts/img/P1.jpg" alt="pants">
     </div>
+  </div>
 </div>
