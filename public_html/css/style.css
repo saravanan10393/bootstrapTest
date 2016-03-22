@@ -17,7 +17,7 @@ body {
 
 .box-border {
   width: 100%;
-  height: 20px;
+  height: 10px;
   background: #aaa; }
 
 .caps {
@@ -29,10 +29,24 @@ body {
 .margin-top-10 {
   margin-top: 10px; }
 
+.underline {
+  text-decoration: underline; }
+
+.text-end {
+  text-align: end; }
+
 /*uitility class ends*/
+.header .title {
+  font-size: 30px;
+  font-weight: bolder; }
+
 .p-info input[type='text'] {
   width: 40px;
   height: 25px; }
+
+.p-count {
+  font-size: 18px;
+  font-weight: lighter; }
 
 .promo-code-details input[type='text'] {
   height: 34px; }
@@ -61,6 +75,19 @@ body {
   font-weight: bolder;
   margin-right: 10px; }
 
+.sub-title, .prize {
+  font-size: 18px;
+  font-weight: 400; }
+
+.title-info {
+  font-size: 14px;
+  font-weight: lighter; }
+
+.checkout-btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 0px; }
+
 @media only screen and (min-width: 768px) {
   .button-holder .save:before {
     content: "|";
@@ -74,6 +101,9 @@ body {
     content: "X";
     color: #aaa;
     font-weight: bolder;
-    margin: 0 5px; } }
+    margin: 0 5px; }
+
+  .checkout-btn {
+    width: 150px; } }
 
 /*# sourceMappingURL=style.css.map */

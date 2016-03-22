@@ -20,7 +20,7 @@ body{
 
 .box-border{
   width: $fullWidth;
-  height: 20px;
+  height: 10px;
   background:#aaa;
 }
 
@@ -39,8 +39,23 @@ body{
   margin-top: 10px;
 }
 
+.underline{
+    text-decoration: underline;
+}
+
+.text-end{
+    text-align: end;
+}
 
 /*uitility class ends*/
+
+
+.header{
+    .title{
+        font-size: 30px;
+        font-weight: bolder;
+    }
+}
 
 .p-info{
   input[type='text']{
@@ -49,6 +64,11 @@ body{
   }
 }
 
+
+.p-count{
+    font-size: 18px;
+    font-weight: lighter;
+}
 
 .promo-code-details{
   input[type='text']{
@@ -96,6 +116,22 @@ body{
   }
 }
 
+.sub-title,.prize{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.title-info{
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.checkout-btn{
+    height: 50px;
+    width:$fullWidth;
+    border-radius: 0px; 
+}
+
 @media only screen and (min-width:768px){
   .button-holder{
     .save{
@@ -121,4 +157,9 @@ body{
       }
     }
   }
+  
+  .checkout-btn{
+      width:150px;
+  }
+  
 }
