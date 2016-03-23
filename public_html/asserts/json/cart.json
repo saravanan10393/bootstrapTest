@@ -7,8 +7,8 @@
       "p_variation": "solid green",
       "p_style": "ms13kt1906",
       "p_selected_color": {
-        "name": "blue",
-        "hexcode": "#1169BD"
+        "name": "red",
+        "hexcode": "#ED99A8"
       },
       "p_selected_size": {
         "name": "small",
@@ -167,7 +167,7 @@
       "p_image": "T4.jpg",
       "p_selected_color": {
         "name": "red",
-        "hexcode": ""
+        "hexcode": "#ED99A8"
       },
       "p_selected_size": {
         "name": "small",

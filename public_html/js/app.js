@@ -78,15 +78,16 @@ cartApp.controller('cartController', ['cartService', 'Constants', '$uibModal', '
     };
 
     vm.openEditModal = function (item) {
-      $scope.selectedItem = item;
-      var modalInstance = $uibModal.open({
+      $scope.chosenItem = item;
+      $scope.modalInstance = $uibModal.open({
         templateUrl: 'modal/itemDetail.html',
         controller: 'cartItemEditCtrl',
         scope: $scope
       });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+      $scope.modalInstance.result.then(function (selectedItem) {
+        angular.extend(_.findWhere(vm.orderDetails,{p_id:selectedItem.p_id}),selectedItem);
+        vm.calculateOrderTotal();
       }, function () {
         console.error('Modal dismissed at: ');
       });
@@ -107,12 +108,26 @@ cartApp.controller('cartController', ['cartService', 'Constants', '$uibModal', '
   }])
 
 cartApp.controller('cartItemEditCtrl', ['$scope', function ($scope) {
-    console.log('modal scope ', $scope.selectedItem);
+    console.log('modal scope ', $scope.chosenItem);
+
+    $scope.selectedItem = angular.copy($scope.chosenItem) //avoid 2-way data reflection while editing item details to the cart page.
+
+    $scope.qty = Array.apply(null,Array(20)).map(function(){return Math.random()}); // for number  temporary dropDown
+    
 
     $scope.getSelectedColor = function (color) {
+       console.log('method is calling ',color);
       if (color.hexcode == $scope.selectedItem.p_selected_color.hexcode) {
         return "active";
       }
+    };
+    
+    $scope.updateItem = function(){
+        $scope.modalInstance.close($scope.selectedItem);
+    };
+    
+    $scope.cancel = function(){
+        $scope.modalInstance.dismiss('dismise');
     };
 
   }]);

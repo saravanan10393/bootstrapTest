@@ -100,9 +100,22 @@ body {
   height: 25px;
   border: solid #aaa 1px;
   cursor: pointer; }
-.colors .color .active {
-  height: 30px;
-  width: 30px; }
+  .colors .color .active {
+    height: 30px;
+    width: 30px; }
+
+.select {
+  width: 100px;
+  height: 40px;
+  border: solid #aaa 1px; }
+  .select select {
+    height: 100%;
+    background: transparent;
+    border: none;
+    float: right; }
+  .select span {
+    font-size: 16px;
+    text-transform: uppercase; }
 
 @media only screen and (min-width: 768px) {
   .button-holder .save:before {

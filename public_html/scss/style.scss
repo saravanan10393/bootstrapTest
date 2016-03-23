@@ -154,13 +154,32 @@ body{
     height:25px;
     border:solid #aaa 1px;
     cursor: pointer;
-  }
-  .color{
+    
     .active{
       height:30px;
       width:30px
     }
+    
   }
+  
+}
+
+.select{
+    width:100px;
+    height: 40px;
+    border:solid #aaa 1px;
+    
+    select{
+        height: $fullHeight;
+        background: transparent;
+        border:none;
+        float:right;
+    }
+    
+    span{
+        font-size:16px;
+        text-transform: uppercase;
+    }
 }
 
 @media only screen and (min-width:768px){
