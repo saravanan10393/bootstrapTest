@@ -5,223 +5,223 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html ng-app="cartApp" ng-cloak="">
-    <head>
-        <title>Shopping Cart</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Shopping Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="dest/css/style.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
 
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
 
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    </head>
-    <body ng-controller="cartController as cart">
-        <div class="container-fluid">
-            <section class="header">
-                <span class="title">Your Shopping Bag</span>
-                <span class="p-count pull-right visible-xs visible-sm">{{cart.orderDetails.length}} Items</span>
-                <br/><br/>
-            </section>
-            <section class="content">
-                <hr class="hidden-xs" />
-                <div class="p-item-holder">
-                    <!-- table title for lg device-->
-                    <div class="row hidden visible-lg visible-md">
-                        <div class="col-md-8">
-                            <span class="p-count">{{cart.orderDetails.length}} Items</span>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    Size
-                                </div>
-                                <div class="col-md-4">
-                                    Qty
-                                </div>
-                                <div class="col-md-4">
-                                    Prize
-                                </div>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+</head>
+<body ng-controller="cartController as cart">
+    <div class="container-fluid">
+        <section class="header">
+            <span class="title">Your Shopping Bag</span>
+            <span class="p-count pull-right visible-xs visible-sm">{{cart.orderDetails.length}} Items</span>
+            <br/><br/>
+        </section>
+        <section class="content">
+            <hr class="hidden-xs" />
+            <div class="p-item-holder">
+                <!-- table title for lg device-->
+                <div class="row hidden visible-lg visible-md">
+                    <div class="col-md-8">
+                        <span class="p-count">{{cart.orderDetails.length}} Items</span>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                Size
+                            </div>
+                            <div class="col-md-4">
+                                Qty
+                            </div>
+                            <div class="col-md-4">
+                                Prize
                             </div>
                         </div>
                     </div>
-                    <!--table title ends-->
+                </div>
+                <!--table title ends-->
 
-                    <div class="box-border"></div>
+                <div class="box-border"></div>
 
-                    <!-- product items -->
-                    <div class="p-items row" ng-repeat="item in cart.orderDetails">
-                        <br/>
-                        <div class="col-md-8 col-sm-12"><!-- image details -->
-                            <div class="row margin-top-10">
-                                <div class="col-md-5 col-sm-6 col-xs-6 text-center">
-                                    <img ng-src="asserts/img/{{item.p_image}}">
-                                </div>
-                                <div class="col-md-7 visible-lg visible-md p-info">
-                                    <h4>{{item.p_name | uppercase}} </h4>
-                                    <p>Style #: {{item.p_style}}</p>
-                                    <p>Color : {{item.p_selected_color.name | uppercase}}</p>
-                                    <p>Size : {{item.p_selected_size.code | uppercase}}</p>
-                                    <br/>
-                                    <div class="button-holder margin-top-10">
-                                        <a href="javascript:void(0)" class="edit caps" ng-click="cart.openEditModal(item)">EDIT</a>
-                                        <a href="javascript:void(0)" class="remove caps" ng-click="cart.removeItemFromCart(item.p_id)">REMOVE</a>
-                                        <a href="javascript:void(0)" class="save caps" ng-click="cart.saveForLater(item)">SAVE FOR LATER</a>
-                                    </div>
-                                    <br/>
-                                </div>
-                                <div class="col-sm-6 col-xs-6 hidden visible-sm visible-xs p-info">
-                                    <h4>{{item.p_name | uppercase}} </h4>
-                                    <p>Style #: {{item.p_style}}</p>
-                                    <p>Color : {{item.p_selected_color.name | uppercase}}</p>
-                                    <p>Size : {{item.p_selected_size.code | uppercase}}</p>
-                                    <div class="d-inline margin-top-10">
-                                        <span>QTY</span>
-                                        <input type="text" ng-model="item.p_quantity" ng-change="cart.calculateOrderTotal()">
-                                    </div>
-                                    <div class="prize-info margin-top-10">
-                                        <span class="currency-symbom">{{item.c_currency}}</span>
-                                        <span class="prize">{{item.totalPrize}}</span>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 text-center hidden visible-sm visible-xs button-holder margin-top-10">
+                <!-- product items -->
+                <div class="p-items row" ng-repeat="item in cart.orderDetails">
+                    <br/>
+                    <div class="col-md-8 col-sm-12"><!-- image details -->
+                        <div class="row margin-top-10">
+                            <div class="col-md-5 col-sm-6 col-xs-6 text-center">
+                                <img ng-src="asserts/img/{{item.p_image}}">
+                            </div>
+                            <div class="col-md-7 visible-lg visible-md p-info">
+                                <h4>{{item.p_name | uppercase}} </h4>
+                                <p>Style #: {{item.p_style}}</p>
+                                <p>Color : {{item.p_selected_color.name | uppercase}}</p>
+                                <p>Size : {{item.p_selected_size.code | uppercase}}</p>
+                                <br/>
+                                <div class="button-holder margin-top-10">
                                     <a href="javascript:void(0)" class="edit caps" ng-click="cart.openEditModal(item)">EDIT</a>
                                     <a href="javascript:void(0)" class="remove caps" ng-click="cart.removeItemFromCart(item.p_id)">REMOVE</a>
                                     <a href="javascript:void(0)" class="save caps" ng-click="cart.saveForLater(item)">SAVE FOR LATER</a>
                                 </div>
                                 <br/>
                             </div>
-                        </div>
-                        <div class="col-md-4 visible-lg"><!-- count details -->
-                            <div class="row">
-                                <div class="col-md-4"><span class="size">{{item.p_selected_size.code | uppercase}}</span></div>
-                                <div class="col-md-4 p-info"><input type="text" ng-model="item.p_quantity" ng-change="cart.calculateOrderTotal()"></div>
-                                <div class="col-md-4"><span class="prize">{{item.c_currency +" "+item.totalPrize}}</span></div>
+                            <div class="col-sm-6 col-xs-6 hidden visible-sm visible-xs p-info">
+                                <h4>{{item.p_name | uppercase}} </h4>
+                                <p>Style #: {{item.p_style}}</p>
+                                <p>Color : {{item.p_selected_color.name | uppercase}}</p>
+                                <p>Size : {{item.p_selected_size.code | uppercase}}</p>
+                                <div class="d-inline margin-top-10">
+                                    <span>QTY</span>
+                                    <input type="text" ng-model="item.p_quantity" ng-change="cart.calculateOrderTotal()">
+                                </div>
+                                <div class="prize-info margin-top-10">
+                                    <span class="currency-symbom">{{item.c_currency}}</span>
+                                    <span class="prize">{{item.totalPrize}}</span>
+                                </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 text-center hidden visible-sm visible-xs button-holder margin-top-10">
+                                <a href="javascript:void(0)" class="edit caps" ng-click="cart.openEditModal(item)">EDIT</a>
+                                <a href="javascript:void(0)" class="remove caps" ng-click="cart.removeItemFromCart(item.p_id)">REMOVE</a>
+                                <a href="javascript:void(0)" class="save caps" ng-click="cart.saveForLater(item)">SAVE FOR LATER</a>
+                            </div>
+                            <br/>
                         </div>
                     </div>
-                    <!-- product items ends-->
-                    <div class="box-border"></div>
-
-                    <div class="order-details-container row margin-top-10">
-                        <div class="enquery-details col-md-4 col-lg-4 hidden-sm hidden-xs margin-top-10">
-                            <p class="sub-title">Need help or have a question?</p>
-                            <br/>
-                            <p class="title-info">Call customer service at
-                                <span class="sub-title">1-8000-555-5555</span>
-                            </p>
-                            <br/>
-
-                            <a class="title-info underline" href="javascript:void(0)">
-                                Chat with one of our stttylists
-                            </a>
-                            <br/>
-                            <a class="title-info underline" href="javascript:void(0)">
-                                See Return & Exchange policy
-                            </a>
-
-                        </div>
-                        <div class="order-details col-md-8 col-sm-12 col-lg-8 col-xs-12">
-                            <div class="promo-code-details row padding-10 text-center">
-                                <span class="col-md-5 col-sm-5 col-xs-12">Enter Promotion code or Gift card</span>
-                                <span class="col-md-4 col-sm-4 col-xs-7"><input type="text" ng-model="cart.coupenCode" ></span>
-                                <span class="col-md-3 col-sm-3 col-sm-5"><button class="btn btn-default" ng-click="cart.applyCoupenCode(cart.coupenCode)">APPLY</button></span>
-                            </div>
-
-                            <div class="box-border hidden-sm hidden-xs"></div>
-
-                            <div class="prize-details margin-top-10">
-                                <br/>
-                                <div class="row margin-top-10">
-                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                        <label class="sub-title">SUBTOTAL</label>
-                                        <p class="title-info"></p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-4 text-end">
-                                        <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
-                                        <span class="prize">{{cart.orderCashDetails.subTotal | number:2}}</span>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row margin-top-10" ng-show="cart.orderCashDetails.discountPrize">
-                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                        <label class="sub-title">Promotion code JF10 applied</label>
-                                        <p class="title-info"></p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-4 text-end">
-                                        <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
-                                        <span class="prize">{{cart.orderCashDetails.discountPrize | number:2}}</span>
-                                    </div>
-                                </div>
-                                <hr ng-hide="cart.orderCashDetails.shippingPrize == 0"/>
-                                <div class="row margin-top-10">
-                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                        <label class="sub-title">Estimated shipping</label>
-                                        <p class="title-info">You qulify for free shipping because your order is over $50*</p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-4 text-end">
-                                        <span class="currency-symbom" ng-hide="cart.orderCashDetails.shippingPrize == 0">{{cart.orderCashDetails.currency}}</span>
-                                        <span class="prize">{{cart.orderCashDetails.shippingPrize == 0 ? "FREE" : cart.orderCashDetails.shippingPrize}}</span>
-                                    </div>
-                                </div>
-
-                                <hr/>
-
-                                <div class="row margin-top-10">
-                                    <div class="col-md-8 col-sm-8 col-xs-8">
-                                        <label class="sub-title">Estimated Total</label>
-                                        <p class="title-info">Tax will be applied during checkout</p>
-                                    </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-4 text-end">
-                                        <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
-                                        <span class="prize">{{cart.orderCashDetails.estimatedTotal | number:2}}</span>
-                                    </div>
-                                </div>
-
-                                <div class="box-border hidden-sm hidden-xs margin-top-10"></div>
-
-                                <div class="check-out-btn-holder margin-top-10">
-                                    <div class="row hidden-xs text-end">
-                                        <a href="javascript:void(0)" class="underline col-md-3 col-md-offset-6">Continue Shopping</a>
-                                        <span class="col-md-3">
-                                            <button class="btn btn-primary checkout-btn text-uppercase">CHECKOUT</button>
-                                        </span>
-
-                                    </div>
-                                    <div class="row visible-xs">
-                                        <button class="btn btn-primary checkout-btn text-uppercase col-xs-12">CHECKOUT</button>
-                                        <a href="javascript:void(0)" class="underline col-xs-12">Continue Shopping</a>
-                                    </div>
-
-                                    <div class="secure-msg margin-top-10 col-xs-12 col-md-offset-6 col-md-6 text-end">
-
-                                        <p><span>icon</span> Secure checkout. Shopping is always safe and secure</p>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
+                    <div class="col-md-4 col-lg-4 visible-lg visible-md"><!-- count details -->
+                        <div class="row">
+                            <div class="col-md-4"><span class="size">{{item.p_selected_size.code | uppercase}}</span></div>
+                            <div class="col-md-4 p-info"><input type="text" ng-model="item.p_quantity" ng-change="cart.calculateOrderTotal()"></div>
+                            <div class="col-md-4"><span class="prize">{{item.c_currency +" "+item.totalPrize}}</span></div>
                         </div>
                     </div>
-
                 </div>
-            </section>
-            <section class="footer">
+                <!-- product items ends-->
+                <div class="box-border"></div>
 
-            </section>
-        </div>
+                <div class="order-details-container row margin-top-10">
+                    <div class="enquery-details col-md-4 col-lg-4 hidden-sm hidden-xs margin-top-10">
+                        <p class="sub-title">Need help or have a question?</p>
+                        <br/>
+                        <p class="title-info">Call customer service at
+                            <span class="sub-title">1-8000-555-5555</span>
+                        </p>
+                        <br/>
 
-      <script src="js/app.js"></script>
-      <script src="js/cartService.js"></script>
+                        <a class="title-info underline" href="javascript:void(0)">
+                            Chat with one of our stttylists
+                        </a>
+                        <br/>
+                        <a class="title-info underline" href="javascript:void(0)">
+                            See Return & Exchange policy
+                        </a>
 
-    </body>
+                    </div>
+                    <div class="order-details col-md-8 col-sm-12 col-lg-8 col-xs-12">
+                        <div class="promo-code-details row padding-10 text-center">
+                            <span class="col-md-5 col-sm-5 col-xs-12">Enter Promotion code or Gift card</span>
+                            <span class="col-md-4 col-sm-4 col-xs-7"><input type="text" ng-model="cart.coupenCode" ></span>
+                            <span class="col-md-3 col-sm-3 col-sm-5"><button class="btn btn-default" ng-click="cart.applyCoupenCode(cart.coupenCode)">APPLY</button></span>
+                        </div>
+
+                        <div class="box-border hidden-sm hidden-xs"></div>
+
+                        <div class="prize-details margin-top-10">
+                            <br/>
+                            <div class="row margin-top-10">
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <label class="sub-title">SUBTOTAL</label>
+                                    <p class="title-info"></p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-end">
+                                    <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
+                                    <span class="prize">{{cart.orderCashDetails.subTotal | number:2}}</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row margin-top-10" ng-show="cart.orderCashDetails.discountPrize">
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <label class="sub-title">Promotion code JF10 applied</label>
+                                    <p class="title-info"></p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-end">
+                                    <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
+                                    <span class="prize">{{cart.orderCashDetails.discountPrize | number:2}}</span>
+                                </div>
+                            </div>
+                            <hr ng-hide="cart.orderCashDetails.shippingPrize == 0"/>
+                            <div class="row margin-top-10">
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <label class="sub-title">Estimated shipping</label>
+                                    <p class="title-info">You qulify for free shipping because your order is over $50*</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-end">
+                                    <span class="currency-symbom" ng-hide="cart.orderCashDetails.shippingPrize == 0">{{cart.orderCashDetails.currency}}</span>
+                                    <span class="prize">{{cart.orderCashDetails.shippingPrize == 0 ? "FREE" : cart.orderCashDetails.shippingPrize}}</span>
+                                </div>
+                            </div>
+
+                            <hr/>
+
+                            <div class="row margin-top-10">
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <label class="sub-title">Estimated Total</label>
+                                    <p class="title-info">Tax will be applied during checkout</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 text-end">
+                                    <span class="currency-symbom">{{cart.orderCashDetails.currency}}</span>
+                                    <span class="prize">{{cart.orderCashDetails.estimatedTotal | number:2}}</span>
+                                </div>
+                            </div>
+
+                            <div class="box-border hidden-sm hidden-xs margin-top-10"></div>
+
+                            <div class="check-out-btn-holder margin-top-10">
+                                <div class="row hidden-xs text-end">
+                                    <a href="javascript:void(0)" class="underline col-md-3 col-md-offset-6">Continue Shopping</a>
+                                    <span class="col-md-3">
+                                        <button class="btn btn-primary checkout-btn text-uppercase">CHECKOUT</button>
+                                    </span>
+
+                                </div>
+                                <div class="row visible-xs">
+                                    <button class="btn btn-primary checkout-btn text-uppercase col-xs-12">CHECKOUT</button>
+                                    <a href="javascript:void(0)" class="underline col-xs-12">Continue Shopping</a>
+                                </div>
+
+                                <div class="secure-msg margin-top-10 col-xs-12 col-md-offset-6 col-md-6 text-end">
+
+                                    <p><span>icon</span> Secure checkout. Shopping is always safe and secure</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="footer">
+
+        </section>
+    </div>
+
+    <script src="dest/js/cart-test.min.js"></script>
+
+
+</body>
 </html>

@@ -1,9 +1,9 @@
 <div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close pull-right" ng-click="cancel()">&times;</button>
-    </div>
+  <div class="modal-header">
+    <button type="button" class="close pull-right" ng-click="cancel()">&times;</button>
+  </div>
   <div class="row modal-body">
-    <div class="item-info-holder col-md-5">
+    <div class="item-info-holder col-md-5 col-xs-12">
       <div class="text-center col-md-12 col-sm-12 col-xs-12">
         <div class="box-border"></div><br/>
         <div class="item-info">
@@ -11,26 +11,26 @@
           <p class="prize">{{selectedItem.c_currency+" "+selectedItem.totalPrize}}</p><br/>
           <span>Colors</span>
           <div class="col-md-12 col-sm-12 col-xs-12 colors text-center">
-              <div class="color d-inline" ng-repeat="color in selectedItem.p_available_options.colors" style="background-color: {{color.hexcode}}" ng-class="getSelectedColor(color)" ng-click="selectedItem.p_selected_color = color">
-              </div>
+            <div class="color d-inline" ng-repeat="color in selectedItem.p_available_options.colors" style="background-color: {{color.hexcode}}" ng-class="getSelectedColor(color)" ng-click="selectedItem.p_selected_color = color">
+            </div>
           </div>
           <br/>
           <div class="row text-center">
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                   <div id="select-size" class="select">
-                      <span>SIZE :</span>
-                      <select ng-options="size as size.code for size in selectedItem.p_available_options.sizes" ng-model="selectedItem.p_selected_size">   
-                      </select>
-                  </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <div id="select-size" class="select pull-right">
+                <span>SIZE :</span>
+                <select ng-options="size as size.code for size in selectedItem.p_available_options.sizes" ng-model="selectedItem.p_selected_size">   
+                </select>
               </div>
-              <div class="col-md-6 col-sm-6 col-xs-6">
-                  <div id="select-qty" class="select">
-                      <span>QTY :</span>
-                      <select ng-model="selectedItem.p_quantity">
-                          <option value="{{$index+1}}" ng-repeat="q in qty">{{$index+1}}</option>
-                      </select>
-                  </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <div id="select-qty" class="select">
+                <span>QTY :</span>
+                <select ng-model="selectedItem.p_quantity">
+                  <option value="{{$index+1}}" ng-repeat="q in qty">{{$index+1}}</option>
+                </select>
               </div>
+            </div>
           </div>
           <br/>
           <button class="btn btn-primary checkout-btn" ng-click="updateItem()">EDIT</button>
@@ -40,7 +40,7 @@
 
       </div>
     </div>
-    <div class="item-img col-md-7 text-center">
+    <div class="item-img col-md-7 col-xs-12 text-center">
       <img src="asserts/img/P1.jpg" alt="pants">
     </div>
   </div>
